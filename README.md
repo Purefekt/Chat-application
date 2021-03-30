@@ -29,3 +29,20 @@ select * from users;
 ```
 We can use this statement to check if the table is created properly.  
 Our local database is ready.
+
+### Creating Client side application
+This application will let the user login or create a new account and login and then connect to the server.  
+There are 3 Windows in this application:
+- MainWindow
+- NewUserForm
+- ChatWindow
+
+#### MainWindow
+This is the Login page. A user with a pre existing account can sign into the application with their username and password. Pressing the "LOGIN" button will take the user to the ChatWindow. If the username or password is incorrect an exception is thrown. If the username and password are correct but the user is already logged in, an exception is thrown.  
+If the user does not have an account then he/she can register for an account by pressing the "REGISTER" button which takes the user to the NewUserForm.  
+The user can also press the "X" button on the top right to close the client side application.
+
+#### NewUserForm
+This is where a new user can create an account. The user has to type his/her chosen username and password and enter into the fields given. When the user presses the "SUBMIT", the username and password are stored in the database, a messagebox with the message "Successful creation of username!" pops and pressing on the "ok" button closes the NewUserForm and opens the MainWindow where the user can use the newly created account to login. If the username is taken then an exception is thrown and the user must choose a different username.  
+The user can go back to the MainWindow if he/she realised they already have an account by pressing the '↲' button on the top left corner.  
+The user can close the application by pressing on the 'X' button in the top right corner.

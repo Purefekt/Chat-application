@@ -20,9 +20,6 @@ using SimpleTCP;
 
 namespace Client
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -30,11 +27,13 @@ namespace Client
             InitializeComponent();
         }
 
+        //Checks the login info provided
         private void CheckLogin(string username, string password) {
             string checkUser = null;
             string checkPassword = null;
             int isLogged = 0;
 
+            //To create a connection to the local database
             String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM users WHERE username = '" + username + "';", connection);
@@ -80,6 +79,7 @@ namespace Client
             }
         }
 
+        //Sends the username and password information to check
         private void Login (object sender, RoutedEventArgs e)
         {
             String user = this.usernameBox.Text;
@@ -100,6 +100,7 @@ namespace Client
             this.passwordBox.Password = "";
         }
 
+        //Takes the user to the NewUserForm
         private void UserForm(object sender, RoutedEventArgs e)
         {
             NewUserForm newUser = new NewUserForm();
@@ -107,6 +108,7 @@ namespace Client
             Close();
         }
 
+        //On successful login takes the user to the ChatWindow
         private void OpenChatWindow()
         {
             ChatWindow chatWindow = new ChatWindow(this.usernameBox.Text);

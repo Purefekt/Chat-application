@@ -5,9 +5,6 @@ using MySql.Data.MySqlClient;
 
 namespace Client
 {
-    /// <summary>
-    /// Interaction logic for NewUserForm.xaml
-    /// </summary>
     public partial class NewUserForm : Window
     {
         public NewUserForm()
@@ -15,6 +12,7 @@ namespace Client
             InitializeComponent();
         }
 
+        //Handler for pressing submit
         private void Submit(object sender, RoutedEventArgs e)
         {
             String newUser = this.newuser.Text;
@@ -22,7 +20,8 @@ namespace Client
 
             NewUserCreation(newUser, newPassword);
         }
-
+        
+        //Creates a new user and saves the data to the local database
         private void NewUserCreation(String username, String password)
         {
             String check = null;
