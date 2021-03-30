@@ -1,0 +1,19 @@
+﻿<Window x:Class="Server.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Server"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="340" Width="527.2" Loaded="ServerLoaded">
+    <Grid>
+        <TextBox x:Name="txtHost" HorizontalAlignment="Left" Height="17" Margin="83,14,0,0" TextWrapping="Wrap" Text="127.0.0.1" VerticalAlignment="Top" Width="126" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtPort" HorizontalAlignment="Left" Height="17" Margin="273,14,0,0" TextWrapping="Wrap" Text="1111" VerticalAlignment="Top" Width="58" HorizontalContentAlignment="Center" HorizontalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="txtStatus" HorizontalAlignment="Left" Height="237" Margin="19,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="484"/>
+        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Height="21" Margin="379,13,0,0" VerticalAlignment="Top" Width="56" Click="btnStart_Click"/>
+        <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Height="21" Margin="448,13,0,0" VerticalAlignment="Top" Width="55" Click="btnStop_Click"/>
+        <Label Content="Host IP:" HorizontalAlignment="Left" Height="27" Margin="22,10,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.299,0.548"/>
+        <Label Content="Port:" HorizontalAlignment="Left" Height="27" Margin="229,10,0,0" VerticalAlignment="Top" Width="39"/>
+
+    </Grid>
+</Window>

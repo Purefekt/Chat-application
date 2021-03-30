@@ -1,0 +1,51 @@
+D:\Desktop\Server-Client Program\Client\Server\bin\Debug\Server.exe.config
+D:\Desktop\Server-Client Program\Client\Server\bin\Debug\Server.exe
+D:\Desktop\Server-Client Program\Client\Server\bin\Debug\Server.pdb
+D:\Desktop\Server-Client Program\Client\Server\bin\Debug\SimpleTCP.dll
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\MainWindow.g.cs
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\App.g.cs
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\Server_MarkupCompile.cache
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\Server_MarkupCompile.lref
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\MainWindow.baml
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\Server.g.resources
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\Server.Properties.Resources.resources
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\Server.csproj.GenerateResource.cache
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\Server.csproj.CopyComplete
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\Server.exe
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\Server.pdb
+D:\Desktop\Server-Client Program\Client\Server\obj\Debug\Server.csprojAssemblyReference.cache
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\bin\Debug\Server.exe.config
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\bin\Debug\Server.exe
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\bin\Debug\Server.pdb
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\bin\Debug\SimpleTCP.dll
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\Server.csprojAssemblyReference.cache
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\MainWindow.g.cs
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\App.g.cs
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\Server_MarkupCompile.cache
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\Server_MarkupCompile.lref
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\MainWindow.baml
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\Server.g.resources
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\Server.csproj.CopyComplete
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\Server.exe
+C:\Users\roony\OneDrive\Desktop\Server-Client-Program-master\Server-Client-Program-master\Client\Server\obj\Debug\Server.pdb
+C:\Users\roony\OneDrive\Desktop\Client\Server\bin\Debug\Server.exe.config
+C:\Users\roony\OneDrive\Desktop\Client\Server\bin\Debug\Server.exe
+C:\Users\roony\OneDrive\Desktop\Client\Server\bin\Debug\Server.pdb
+C:\Users\roony\OneDrive\Desktop\Client\Server\bin\Debug\SimpleTCP.dll
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\Server.csprojAssemblyReference.cache
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\MainWindow.g.cs
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\App.g.cs
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\Server_MarkupCompile.cache
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\Server_MarkupCompile.lref
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\MainWindow.baml
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\Server.g.resources
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\Server.csproj.CopyComplete
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\Server.exe
+C:\Users\roony\OneDrive\Desktop\Client\Server\obj\Debug\Server.pdb

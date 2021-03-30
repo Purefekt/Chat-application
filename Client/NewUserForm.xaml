@@ -1,0 +1,16 @@
+﻿<Window x:Class="Client.NewUserForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="NewUserForm" Height="243.772" Width="377.118">
+    <Grid>
+        <Label Content="Username:" HorizontalAlignment="Left" Margin="85,56,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="85,101,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="newuser" HorizontalAlignment="Left" Height="26" Margin="169,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
+        <PasswordBox Name="newpassword"  HorizontalAlignment="Left" Height="26" Margin="169,101,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Height="24" Margin="189,155,0,0" VerticalAlignment="Top" Width="74" Click="Submit"/>
+    </Grid>
+</Window>
