@@ -11,13 +11,21 @@ This is a WPF chat application using a MySQL local database.
 
 ### 2. Setting up a local MySQL database
 After the successful installation of MySQL, configure the root password. For me i set it as 1234. We will need this password when sending MySQL commands.  
-Now we have to set up a local database. To do that open MySQL Workbench, go to the "Local instance MySQL80" under MySQL Connections. Here we can write SQL queries to make the database.
-```create database loginnames;```
+Now we have to set up a local database. To do that open MySQL Workbench, go to the "Local instance MySQL80" under MySQL Connections. Here we can write SQL queries to make the database.  
+```
+create database loginnames;
+```
 This creates the database
-```use loginnames;```
+```
+use loginnames;
+```
 This tells SQL to use this database for all commands
-```create table users (username varchar(255), password varchar(255), isLogged varchar(255));```
+```
+create table users (username varchar(255), password varchar(255), isLogged varchar(255));
+```
 This creates a new table called users where we have 3 columns called username, password and isLogged, all of which are the type varchar
-```select * from users;```
+```
+select * from users;
+```
 We can use this statement to check if the table is created properly.  
 Our local database is ready.
