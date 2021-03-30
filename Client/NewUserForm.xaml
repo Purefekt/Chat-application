@@ -5,12 +5,100 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="NewUserForm" Height="243.772" Width="377.118">
+        Title="NewUserForm" Height="400" Width="500"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="Window_MouseDown">
     <Grid>
-        <Label Content="Username:" HorizontalAlignment="Left" Margin="85,56,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="85,101,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="newuser" HorizontalAlignment="Left" Height="26" Margin="169,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
-        <PasswordBox Name="newpassword"  HorizontalAlignment="Left" Height="26" Margin="169,101,0,0" VerticalAlignment="Top" Width="147"/>
-        <Button Content="Submit" HorizontalAlignment="Left" Height="24" Margin="189,155,0,0" VerticalAlignment="Top" Width="74" Click="Submit"/>
+        <!--Background color and rounded corners-->
+        <Border CornerRadius="15" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#02aab0" Offset="0.0"/>
+                    <GradientStop Color="#00cdac" Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <!--Go back button-->
+                <Button Click="GoBackToLogin"
+                    Height="40"
+                    Width="40"
+                    Content="↲"
+                    FontSize="20"
+                    Margin="10 10 0 0"/>
+
+                <!--Close button-->
+                <Button Click="CloseButton_Click"
+                    Height="40"
+                    Width="40"
+                    Content="╳"
+                    FontSize="20"
+                    Margin="400 10 10 0"/>
+            </StackPanel>
+
+            <!--New username-->
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="newuser"
+                         FontFamily="Helvetica"
+                         FontWeight="Light"
+                         FontSize="22"
+                         Text="New Username"
+                         Foreground="White"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         HorizontalAlignment="Center"
+                         HorizontalContentAlignment="Left"
+                         Opacity="0.5"
+                         Height="25"
+                         Width="275"
+                         Margin="100 110 0 0"
+                         PreviewMouseLeftButtonDown="ClearUsername"
+                    />
+                <Image Source="/Images/username.png" Width="25" Height="25" Margin="0 110 100 0"/>
+            </StackPanel>
+            <!--Underline for username-->
+            <Border Width="300"
+                    Height="2"
+                    Background="White"
+                    Opacity="1"/>
+
+            <!--New password-->
+            <StackPanel Orientation="Horizontal">
+                <PasswordBox 
+                         x:Name="newpassword"
+                         FontFamily="Helvetica"
+                         FontWeight="Light"
+                         FontSize="22"
+                         Password="Username"
+                         Foreground="White"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         HorizontalAlignment="Center"
+                         HorizontalContentAlignment="Left"
+                         Opacity="0.5"
+                         Height="25"
+                         Width="275"
+                         Margin="100 0 0 0"
+                         PreviewMouseLeftButtonDown="ClearPassword"
+                    />
+                <Image Source="/Images/password.png" Width="25"/>
+            </StackPanel>
+            <!--Underline for password-->
+            <Border Width="300"
+                    Height="2"
+                    Background="White"
+                    Opacity="1"/>
+
+            <!--SUBMIT button-->
+                <Button Click="Submit"
+                        Width="100"
+                        Height="40"
+                        Content="SUBMIT"
+                        Margin="200 80 200 100"/>
+            </StackPanel>
     </Grid>
 </Window>

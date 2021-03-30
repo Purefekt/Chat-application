@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Input;
 using MySql.Data.MySqlClient;
 
 namespace Client
@@ -26,7 +27,7 @@ namespace Client
         {
             String check = null;
 
-            String connectionString = "datasource = localhost; username = root; password =; database = loginnames";
+            String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand cmd;
             MySqlDataReader reader;
@@ -68,6 +69,42 @@ namespace Client
                 MessageBox.Show(ex.Message);
             }
         }
+
+        //Lets us drag the window with the mouse
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        //Clears the username box when clicked on
+        private void ClearUsername(object sender, RoutedEventArgs e)
+        {
+            this.newuser.Text = "";
+        }
+
+        //Clears the password box when clicked on
+        private void ClearPassword(object sender, MouseButtonEventArgs e)
+        {
+            this.newpassword.Password = "";
+        }
+
+        //Go back to the login screen
+        private void GoBackToLogin(object sender, RoutedEventArgs e)
+        {
+            MainWindow goBack = new MainWindow();
+            goBack.Show();
+            Close();
+        }
+
+        //Closes the application when we click the X button
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
     }
 
 }

@@ -179,7 +179,7 @@ namespace Client
                 client.TcpClient.Close();
             }
 
-            String connectionString = "datasource = localhost; username = root; password =; database = loginnames";
+            String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
             MySqlConnection connection = new MySqlConnection(connectionString);
 
             try

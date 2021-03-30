@@ -33,7 +33,7 @@
             <Button Click="CloseButton_Click"
                     Height="40"
                     Width="40"
-                    Content="x"
+                    Content="╳"
                     FontSize="20"
                     Margin="440 10 0 0"/>
             

@@ -35,7 +35,7 @@ namespace Client
             string checkPassword = null;
             int isLogged = 0;
 
-            String connectionString = "datasource = localhost; username = root; password =; database = loginnames";
+            String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM users WHERE username = '" + username + "';", connection);
             MySqlDataReader reader;
