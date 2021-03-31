@@ -33,37 +33,53 @@
                         Width="68"
                         Click="btnConnect_Click"/>
 
+                <!--You are signed in as ...-->
+                <TextBlock x:Name="connectedToTheServerAs"
+                           Text=""
+                           FontSize="16"
+                           FontFamily="Helvetica"
+                           Width="352"
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           Margin="10, 10,0,0"
+                           Foreground="Black"
+                           FontWeight="Bold"/>
+
                 <!--Close button-->
                 <Button Click="CloseButton_Click"
                         Height="40"
                         Width="40"
                         Content="╳"
                         FontSize="20"
-                        Margin="372 10 0 0"/>
+                        Margin="10 10 0 0"/>
             </StackPanel>
 
             <!--List of users Label-->
-            <StackPanel Orientation="Horizontal" Height="40">
+            <StackPanel Orientation="Horizontal">
 
                 <Label Content="Chat Log:"
                        FontSize="16"
                        FontFamily="Helvetica"
                        Foreground="White"
+                       Height="30"
                        Width="90"
                        Margin="10,10,0,0"/>
 
-                <Label Content="List of All Users:"
+                <Label Content="List of Users:"
                        FontSize="16"
                        FontFamily="Helvetica"
                        Foreground="White"
-                       Width="120"
-                       Margin="270,10,0,0"/>
+                       Width="100"
+                       Height="30"
+                       Margin="295,10,0,0"/>
             </StackPanel>
 
             <!--Main box and User list-->
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="txtStatus"
-                         Height="180" Margin="10,10,0,0"
+                         Height="160" Margin="10,10,0,0"
                          TextWrapping="Wrap"
                          Text=""
                          Width="380"
@@ -74,7 +90,7 @@
                          BorderBrush="White"/>
 
                 <ListBox Name="listbox"
-                         Height="180"
+                         Height="160"
                          Margin="10,10,0,0"
                          Width="90"
                          VerticalAlignment="Top"
@@ -88,14 +104,16 @@
                    FontFamily="Helvetica"
                    Foreground="White"
                    Width="340"
-                   Margin="10,10,0,0"
+                   Height="30"
+                   Margin="10,0,0,0"
                    HorizontalAlignment="Left"/>
 
             <!--Text message box, send button, brown button-->
             <StackPanel Orientation="Horizontal">
                 <!--Text message box-->
                 <TextBox x:Name="txtMessage"
-                         Height="60" Margin="10,0,0,0"
+                         Height="60"
+                         Margin="10,0,0,0"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          TextWrapping="Wrap"
@@ -124,6 +142,15 @@
                         Width="60"
                         Click="btnBrowse_Click"/>
             </StackPanel>
+
+            <!--Footer-->
+            <Label Content="Veer Singh © 2021 | Built with ❤"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Margin="0,20,0,0"
+                   Height="30"
+                   Foreground="White"
+                   Opacity="0.5"/>
 
         </StackPanel>
     </Grid>

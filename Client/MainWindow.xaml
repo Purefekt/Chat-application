@@ -117,6 +117,15 @@
                         Content="REGISTER"
                         Margin="100 0 100 0"/>
             </StackPanel>
+            
+            <!--Footer-->
+            <Label Content="Veer Singh © 2021 | Built with ❤"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Margin="0,26,0,0"
+                   Height="30"
+                   Foreground="White"
+                   Opacity="0.5"/>
         </StackPanel>
     </Grid>
 </Window>

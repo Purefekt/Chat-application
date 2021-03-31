@@ -54,6 +54,8 @@ namespace Client
                 client.Connect("127.0.0.1", 1111);
                 client.Write("                         " + username + " just joined!\n");
                 btnConnect.IsEnabled = false;
+                //HERE
+                connectedToTheServerAs.Text = "You are connected to the server as: " + username ;
             }
             catch (Exception ex)
             {
