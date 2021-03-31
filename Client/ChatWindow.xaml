@@ -44,12 +44,20 @@
 
             <!--List of users Label-->
             <StackPanel Orientation="Horizontal" Height="40">
+
+                <Label Content="Chat Log:"
+                       FontSize="16"
+                       FontFamily="Helvetica"
+                       Foreground="White"
+                       Width="90"
+                       Margin="10,10,0,0"/>
+
                 <Label Content="List of All Users:"
                        FontSize="16"
                        FontFamily="Helvetica"
                        Foreground="White"
                        Width="120"
-                       Margin="380,15,0,0"/>
+                       Margin="270,10,0,0"/>
             </StackPanel>
 
             <!--Main box and User list-->
@@ -58,30 +66,51 @@
                          Height="180" Margin="10,10,0,0"
                          TextWrapping="Wrap"
                          Text=""
-                         Width="380"/>
+                         Width="380"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Background="Transparent"
+                         BorderThickness="3"
+                         BorderBrush="White"/>
 
                 <ListBox Name="listbox"
                          Height="180"
                          Margin="10,10,0,0"
-                         Width="90"/>
+                         Width="90"
+                         VerticalAlignment="Top"
+                         Background="Transparent"
+                         BorderThickness="3"
+                         BorderBrush="White"/>
             </StackPanel>
+
+            <Label Content="Type your message here:"
+                   FontSize="16"
+                   FontFamily="Helvetica"
+                   Foreground="White"
+                   Width="340"
+                   Margin="10,10,0,0"
+                   HorizontalAlignment="Left"/>
 
             <!--Text message box, send button, brown button-->
             <StackPanel Orientation="Horizontal">
                 <!--Text message box-->
                 <TextBox x:Name="txtMessage"
-                         Height="60" Margin="10,10,0,0"
+                         Height="60" Margin="10,0,0,0"
+                         HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          TextWrapping="Wrap"
                          Width="340"
-                         PreviewMouseLeftButtonDown="txtMessage_PreviewMouseLeftButtonDown"/>
+                         PreviewMouseLeftButtonDown="txtMessage_PreviewMouseLeftButtonDown"
+                         Background="Transparent"
+                         BorderThickness="3"
+                         BorderBrush="White"/>
 
                 <!--Send button-->
                 <Button x:Name="btnSend"
                         Content="Send"
                         FontSize="16"
                         Height="60"
-                        Margin="10,10,0,0"
+                        Margin="10,0,0,0"
                         VerticalAlignment="Top"
                         Width="60"
                         Click="btnSend_Click"/>
@@ -90,7 +119,7 @@
                 <Button Content="Browse"
                         HorizontalAlignment="Left"
                         Height="60"
-                        Margin="10,10,0,0"
+                        Margin="10,0,0,0"
                         VerticalAlignment="Top"
                         Width="60"
                         Click="btnBrowse_Click"/>
