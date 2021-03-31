@@ -27,8 +27,9 @@ namespace Client
             username = usr;
             this.Title = usr;
 
-            string currentPath = "C:\\Chat Application files";
+            string currentPath = "C:\\Chat Application files"; //Stores the files for the user in this directory
 
+            //If the directory doesnt exist, then we make one with the name of the user
             if (!Directory.Exists(currentPath + "/" + username))
             {
                 Directory.CreateDirectory(currentPath + "/" + username);
@@ -48,8 +49,6 @@ namespace Client
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-            //btnConnect.IsEnabled = false; //prevents us from clicking the button
-            //client.Connect(txtHost.Content, Convert.ToInt32(txtPort.Content));
             try
             {
                 client.Connect("127.0.0.1", 1111);
@@ -169,6 +168,7 @@ namespace Client
             }
         }
 
+        //Tells the user to connect to a server is the user tries to type a message
         private void txtMessage_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (!btnConnect.IsEnabled) //if button is not pressed

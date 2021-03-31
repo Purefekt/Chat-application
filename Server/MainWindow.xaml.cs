@@ -12,7 +12,7 @@ namespace Server
 {
     public partial class MainWindow : Window
     {
-        string currentPath = "";
+        string currentPath = "C:\\Chat Application files";
 
         class ClientDetails
         {
