@@ -10,9 +10,6 @@ using System.IO;
 
 namespace Server
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         string currentPath = "";
@@ -161,10 +158,10 @@ namespace Server
                         listOfClients.RemoveAt(i);
                 }
 
-                server.Broadcast("                         " + username + " just left!\n");
+                server.Broadcast(">>> " + username + " just left!<<<\n");
                 txtStatus.Dispatcher.Invoke((Action)delegate ()
                 {
-                    txtStatus.Text += "                         " + username + " just left!\n";
+                    txtStatus.Text += " >>> " + username + " just left! <<<\n";
                 });
 
             }
@@ -175,7 +172,8 @@ namespace Server
             txtStatus.Text = "Server starting...\n";
             IPAddress ip = IPAddress.Parse(txtHost.Text);
             server.Start(ip, Convert.ToInt32(txtPort.Text)); ;
-            btnStart.IsEnabled = false; //pushes the button and doesnt allow us to click it
+            btnStart.IsEnabled = false; //disables the start button
+            txtStatus.Text = "Server is up and running!\n";
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -183,7 +181,8 @@ namespace Server
             if (server.IsStarted)
             {
                 server.Stop();
-                btnStart.IsEnabled = true; //allows us to press the start button
+                btnStart.IsEnabled = true; //re enables the start button
+                txtStatus.Text = "Server stopped.\n";
             }
         }
 

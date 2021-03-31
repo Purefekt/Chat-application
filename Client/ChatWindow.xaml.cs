@@ -9,16 +9,13 @@ using MySql.Data.MySqlClient;
 
 namespace Client
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class ChatWindow : Window
     {
         private string username;
         Boolean ifFileSelected = false; //boolean tells us if browse button is selected
         FileInfo fi; //stores file name and extension for the file to be saved
 
-        public ChatWindow() //Default constructor
+        public ChatWindow()
         {
             InitializeComponent();
         }
@@ -30,7 +27,7 @@ namespace Client
             username = usr;
             this.Title = usr;
 
-            string currentPath = "";
+            string currentPath = "C:\\Chat Application files";
 
             if (!Directory.Exists(currentPath + "/" + username))
             {
@@ -47,18 +44,25 @@ namespace Client
             client.DataReceived += Client_DataReceived;
 
             txtStatus.IsReadOnly = true;
-            txtHost.IsReadOnly = true;
-            txtPort.IsReadOnly = true;
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-            btnConnect.IsEnabled = false; //prevents us from clicking the button
-            client.Connect(txtHost.Text, Convert.ToInt32(txtPort.Text));
-            client.Write("                         " + username + " just joined!\n");
-        }
+            //btnConnect.IsEnabled = false; //prevents us from clicking the button
+            //client.Connect(txtHost.Content, Convert.ToInt32(txtPort.Content));
+            try
+            {
+                client.Connect("127.0.0.1", 1111);
+                client.Write(">>>> " + username + " just joined! <<<<\n");
+                btnConnect.IsEnabled = false;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Server is not active");
+                btnConnect.IsEnabled = true;
+            }
 
-       
+        }
 
         private void Client_DataReceived(object sender, SimpleTCP.Message e)
         {
@@ -69,16 +73,17 @@ namespace Client
                 int cp = 0;
                 for (int i = 0; i < msg.Split(':').Length; i++)
                 {
-                    if (msg.Split(':')[i] != "" && msg.Split(':')[i] != this.username) {
+                    if (msg.Split(':')[i] != "" && msg.Split(':')[i] != this.username)
+                    {
                         listClients[cp] = msg.Split(':')[i];
                         cp++;
                     }
                 }
-                
+
                 listbox.Items.Dispatcher.Invoke((Action)delegate ()
-                {                      
-                       listbox.ItemsSource = listClients;
-                });               
+                {
+                    listbox.ItemsSource = listClients;
+                });
             }
             else
             {
@@ -140,12 +145,13 @@ namespace Client
             }
 
             txtMessage.Text = "";
-            
+
         }
 
         OpenFileDialog op;
-        
-        private void btnBrowse_Click(object sender, RoutedEventArgs e) //Function for Button called Browse
+
+        //Browse button
+        private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
             if (!btnConnect.IsEnabled) //if button is not pressed
             {
@@ -156,12 +162,13 @@ namespace Client
                     ifFileSelected = true;
                     txtMessage.Text = "Sending " + fi.Name;
                 }
-            } else
+            }
+            else
             {
                 System.Windows.MessageBox.Show("Please connect to the local server!");
             }
         }
-        
+
         private void txtMessage_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (!btnConnect.IsEnabled) //if button is not pressed
@@ -171,6 +178,7 @@ namespace Client
 
         }
 
+        //Logs off the user when window is closed
         private void Window_Closed(object sender, EventArgs e)
         {
             if (!btnConnect.IsEnabled) //if button is not pressed and if we we are connected
@@ -195,6 +203,37 @@ namespace Client
             {
                 System.Windows.MessageBox.Show(ex.Message);
             }
+        }
+
+        //Lets us drag the window with the mouse
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        //Closes the application when we click the X button, also logs out the user
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            try
+            {
+                connection.Open();
+                MySqlCommand upd = new MySqlCommand("UPDATE users SET isLogged='0' WHERE username='" + username + "';", connection);
+                upd.ExecuteNonQuery();
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            }
+            Close();
         }
     }
 }
