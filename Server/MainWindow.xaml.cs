@@ -158,10 +158,10 @@ namespace Server
                         listOfClients.RemoveAt(i);
                 }
 
-                server.Broadcast(">>> " + username + " just left!<<<\n");
+                server.Broadcast("                         " + username + " just left!\n");
                 txtStatus.Dispatcher.Invoke((Action)delegate ()
                 {
-                    txtStatus.Text += " >>> " + username + " just left! <<<\n";
+                    txtStatus.Text += "                         " + username + " just left!\n";
                 });
 
             }

@@ -52,7 +52,7 @@ namespace Client
             try
             {
                 client.Connect("127.0.0.1", 1111);
-                client.Write(">>>> " + username + " just joined! <<<<\n");
+                client.Write("                         " + username + " just joined!\n");
                 btnConnect.IsEnabled = false;
             }
             catch (Exception ex)
@@ -72,8 +72,7 @@ namespace Client
                 int cp = 0;
                 for (int i = 0; i < msg.Split(':').Length; i++)
                 {
-                    if (msg.Split(':')[i] != "" && msg.Split(':')[i] != this.username)
-                    {
+                    if (msg.Split(':')[i] != "" && msg.Split(':')[i] != this.username) {
                         listClients[cp] = msg.Split(':')[i];
                         cp++;
                     }
@@ -161,8 +160,7 @@ namespace Client
                     ifFileSelected = true;
                     txtMessage.Text = "Sending " + fi.Name;
                 }
-            }
-            else
+            } else
             {
                 System.Windows.MessageBox.Show("Please connect to the local server!");
             }
