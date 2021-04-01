@@ -35,7 +35,8 @@ namespace Client
                 Directory.CreateDirectory(currentPath + "/" + username);
             }
         }
-
+        
+        //Create the client variable
         SimpleTcpClient client;
 
         private void ChatWindowLoaded(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace Client
             client.StringEncoder = Encoding.UTF8;
             client.DataReceived += Client_DataReceived;
 
-            txtStatus.IsReadOnly = true;
+            txtStatus.IsReadOnly = true; //Chat log must be read only
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
@@ -53,11 +54,11 @@ namespace Client
             {
                 client.Connect("127.0.0.1", 1111);
                 client.Write("                         " + username + " just joined!\n");
+                //client.Write(">>> " + username + " just joined!<<<\n");
                 btnConnect.IsEnabled = false;
-                //HERE
-                connectedToTheServerAs.Text = "You are connected to the server as: " + username ;
+                connectedToTheServerAs.Text = "You are connected to the server as: " + username ; //Connected to server as message
             }
-            catch (Exception ex)
+            catch (Exception ex) //if the server is anactive but the user still presses the connect button
             {
                 System.Windows.MessageBox.Show("Server is not active");
                 btnConnect.IsEnabled = true;
@@ -117,7 +118,7 @@ namespace Client
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            if (btnConnect.IsEnabled)
+            if (btnConnect.IsEnabled) //Error message if connect button is active which means we are not connected to a server
             {
                 System.Windows.MessageBox.Show("Please connect to the local server!");
             }
@@ -144,16 +145,17 @@ namespace Client
                 System.Windows.MessageBox.Show("Please select someone to send the message to!");
             }
 
-            txtMessage.Text = "";
+            txtMessage.Text = ""; //Empties the text message box
 
         }
 
+        //Allows us to select files from the computer
         OpenFileDialog op;
 
         //Browse button
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
-            if (!btnConnect.IsEnabled) //if button is not pressed
+            if (!btnConnect.IsEnabled) //if connect button is not enabled which means we are connected to a server
             {
                 op = new OpenFileDialog();
                 if (op.ShowDialog() == System.Windows.Forms.DialogResult.OK)

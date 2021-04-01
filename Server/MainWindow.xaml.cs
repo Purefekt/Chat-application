@@ -12,6 +12,7 @@ namespace Server
 {
     public partial class MainWindow : Window
     {
+        //Where the files will be stores
         string currentPath = "C:\\Chat Application files";
 
         class ClientDetails
@@ -43,6 +44,7 @@ namespace Server
         {
             InitializeComponent();
         }
+        //Create the server variable
         SimpleTcpServer server;
 
         private void ServerLoaded(object sender, RoutedEventArgs e)
@@ -64,6 +66,7 @@ namespace Server
             if (e.MessageString.Contains("just joined"))
             {
                 String user = e.MessageString.Substring(25, e.MessageString.Length - 25 - 14);
+                //String user = e.MessageString.Substring(4, e.MessageString.Length- 17);
                 Socket socket = e.TcpClient.Client;
                 listOfClients.Add(new ClientDetails(user, socket));
        
@@ -159,9 +162,12 @@ namespace Server
                 }
 
                 server.Broadcast("                         " + username + " just left!\n");
+                //server.Broadcast(">>> " + username + " just left!<<<\n");//chat log
+
                 txtStatus.Dispatcher.Invoke((Action)delegate ()
                 {
                     txtStatus.Text += "                         " + username + " just left!\n";
+                    //txtStatus.Text +=">>> " + username + " just left!<<<\n";//Server log
                 });
 
             }
@@ -169,7 +175,6 @@ namespace Server
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            txtStatus.Text = "Server starting...\n";
             IPAddress ip = IPAddress.Parse(txtHost.Text);
             server.Start(ip, Convert.ToInt32(txtPort.Text)); ;
             btnStart.IsEnabled = false; //disables the start button
