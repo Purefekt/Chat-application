@@ -79,6 +79,8 @@
             <!--Main box and User list-->
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="txtStatus"
+                         FontFamily="Helvetica"
+                         FontSize="16"
                          Height="160" Margin="10,10,0,0"
                          TextWrapping="Wrap"
                          Text=""
@@ -87,9 +89,12 @@
                          VerticalAlignment="Top"
                          Background="Transparent"
                          BorderThickness="3"
-                         BorderBrush="White"/>
+                         BorderBrush="White"
+                         IsReadOnly="True"/>
 
                 <ListBox Name="listbox"
+                         FontFamily="Helvetica"
+                         FontSize="16"
                          Height="160"
                          Margin="10,10,0,0"
                          Width="90"
@@ -108,16 +113,18 @@
                    Margin="10,0,0,0"
                    HorizontalAlignment="Left"/>
 
-            <!--Text message box, send button, brown button-->
+            <!--Text message box, send button, browse button, clear chat log-->
             <StackPanel Orientation="Horizontal">
                 <!--Text message box-->
                 <TextBox x:Name="txtMessage"
+                         FontSize="16"
+                         FontFamily="Helvetica"
                          Height="60"
                          Margin="10,0,0,0"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          TextWrapping="Wrap"
-                         Width="340"
+                         Width="270"
                          PreviewMouseLeftButtonDown="txtMessage_PreviewMouseLeftButtonDown"
                          Background="Transparent"
                          BorderThickness="3"
@@ -141,6 +148,16 @@
                         VerticalAlignment="Top"
                         Width="60"
                         Click="btnBrowse_Click"/>
+
+                <!--Clear chat log button-->
+                <Button x:Name="Clear"
+                        Content="Clear"
+                        FontSize="16"      
+                        Height="60"
+                        Width="60"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Top"
+                        Click="Click_clear"/>
             </StackPanel>
 
             <!--Footer-->

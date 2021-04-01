@@ -110,12 +110,14 @@
                         Width="100"
                         Height="40"
                         Content="LOGIN"
-                        Margin="100 0 0 0"/>
+                        Margin="100 0 0 0"
+                        FontSize="16"/>
                 <Button Click="UserForm"
                         Width="100"
                         Height="40"
                         Content="REGISTER"
-                        Margin="100 0 100 0"/>
+                        Margin="100 0 100 0"
+                        FontSize="16"/>
             </StackPanel>
             
             <!--Footer-->

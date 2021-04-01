@@ -7,35 +7,31 @@ using System.Windows;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
+using System.Windows.Input;
 
 namespace Server
 {
     public partial class MainWindow : Window
     {
-        //Where the files will be stores
-        string currentPath = "C:\\Chat Application files";
+        string currentPath = "C:\\Chat Application files"; //where the files will be stores
 
         class ClientDetails
         {
             String username;
             Socket userSocket;
-
             public ClientDetails(string username, Socket userSocket)
             {
                 this.username = username;
                 this.userSocket = userSocket;
             }
-
             public String getUsername()
             {
                 return this.username;
             }
-
             public Socket getSocket()
             {
                 return this.userSocket;
             }
-
         }
 
         List<ClientDetails> listOfClients = new List<ClientDetails>();
@@ -44,8 +40,8 @@ namespace Server
         {
             InitializeComponent();
         }
-        //Create the server variable
-        SimpleTcpServer server;
+
+        SimpleTcpServer server; //Create the server variable
 
         private void ServerLoaded(object sender, RoutedEventArgs e)
         {
@@ -53,10 +49,6 @@ namespace Server
             server.Delimiter = 0x13; //enter key
             server.StringEncoder = Encoding.UTF8;
             server.DataReceived += Server_DataReceived;
-
-            txtStatus.IsReadOnly = true;
-            txtHost.IsReadOnly = true;
-            txtPort.IsReadOnly = true;
         }
 
         private void Server_DataReceived(object sender, SimpleTCP.Message e)
@@ -108,9 +100,9 @@ namespace Server
                 }
                 else
                 {
-                    int posOfDel = e.MessageString.IndexOf('#');
-                            
+                    int posOfDel = e.MessageString.IndexOf('#');  
                     string user = e.MessageString.Substring(0, posOfDel);
+                    //if its not a file
                     if (!e.MessageString.Substring(user.Length+1, 4).Equals("File"))
                     {
                         string msg = "[Private] " + e.MessageString.Substring(posOfDel + 1, e.MessageString.Length - posOfDel - 1) + "\n";
@@ -126,7 +118,9 @@ namespace Server
                         {
                             System.Windows.MessageBox.Show(user + " has logged out!");
                         }
-                    } else
+                    }
+                    //if its a file
+                    else
                     {
                         string bigName = e.MessageString.Substring(user.Length + 6, e.MessageString.Length - user.Length - 6);
                         int posOfStar = bigName.IndexOf('#');
@@ -150,43 +144,42 @@ namespace Server
                 }
             }
 
-            if (e.MessageString.Contains("closed"))
+            //remove user from the list when user leaves
+            if (e.MessageString.Contains("closed")) 
             {
                 string username = e.MessageString.ToString().Split(':')[0];
 
-                
                 for (int i = 0; i < listOfClients.Count(); i++)
                 {
                     if (listOfClients[i].getUsername() == username)
                         listOfClients.RemoveAt(i);
                 }
 
-                server.Broadcast("                         " + username + " just left!\n");
-                //server.Broadcast(">>> " + username + " just left!<<<\n");//chat log
+                server.Broadcast(">>> " + username + " just left! <<<\n");//Chat log
 
                 txtStatus.Dispatcher.Invoke((Action)delegate ()
                 {
-                    txtStatus.Text += "                         " + username + " just left!\n";
-                    //txtStatus.Text +=">>> " + username + " just left!<<<\n";//Server log
+                    txtStatus.Text +=">>> " + username + " just left! <<<\n";//Server log
                 });
 
             }
         }
 
-        private void btnStart_Click(object sender, RoutedEventArgs e)
+        private void btnStart_Click(object sender, RoutedEventArgs e) //starts the server with the given ip and port and disables the start button
         {
-            IPAddress ip = IPAddress.Parse(txtHost.Text);
-            server.Start(ip, Convert.ToInt32(txtPort.Text)); ;
-            btnStart.IsEnabled = false; //disables the start button
+            IPAddress ip = IPAddress.Parse("127.0.0.1");
+            server.Start(ip, 1111); ;
+            btnStart.IsEnabled = false;
             txtStatus.Text = "Server is up and running!\n";
         }
 
-        private void btnStop_Click(object sender, RoutedEventArgs e)
+        private void btnStop_Click(object sender, RoutedEventArgs e) //if the server is on, stops it and re enables the start button
         {
             if (server.IsStarted)
             {
+                server.Broadcast("The server has been stopped!");
                 server.Stop();
-                btnStart.IsEnabled = true; //re enables the start button
+                btnStart.IsEnabled = true;
                 txtStatus.Text = "Server stopped.\n";
             }
         }
@@ -224,5 +217,19 @@ namespace Server
 
             return user;
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //Lets the user drag window with mouse
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e) //Closes the app when user clicks the X button
+        {
+            Close();
+        }
     }
+
 }

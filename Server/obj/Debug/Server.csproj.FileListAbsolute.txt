@@ -66,3 +66,5 @@ C:\Users\roony\OneDrive\Desktop\Chat-application\Server\obj\Debug\Server.csproj.
 C:\Users\roony\OneDrive\Desktop\Chat-application\Server\obj\Debug\Server.csproj.CopyComplete
 C:\Users\roony\OneDrive\Desktop\Chat-application\Server\obj\Debug\Server.exe
 C:\Users\roony\OneDrive\Desktop\Chat-application\Server\obj\Debug\Server.pdb
+C:\Users\roony\OneDrive\Desktop\Chat-application\Server\obj\Debug\NewButton.baml
+C:\Users\roony\OneDrive\Desktop\Chat-application\Server\obj\Debug\App.baml

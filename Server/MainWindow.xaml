@@ -5,15 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Server"
         mc:Ignorable="d"
-        Title="MainWindow" Height="340" Width="527.2" Loaded="ServerLoaded">
+        Title="Sever" Height="400" Width="500"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
+        Loaded="ServerLoaded">
     <Grid>
-        <TextBox x:Name="txtHost" HorizontalAlignment="Left" Height="17" Margin="83,14,0,0" TextWrapping="Wrap" Text="127.0.0.1" VerticalAlignment="Top" Width="126" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtPort" HorizontalAlignment="Left" Height="17" Margin="273,14,0,0" TextWrapping="Wrap" Text="1111" VerticalAlignment="Top" Width="58" HorizontalContentAlignment="Center" HorizontalScrollBarVisibility="Auto"/>
-        <TextBox x:Name="txtStatus" HorizontalAlignment="Left" Height="237" Margin="19,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="484"/>
-        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Height="21" Margin="379,13,0,0" VerticalAlignment="Top" Width="56" Click="btnStart_Click"/>
-        <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Height="21" Margin="448,13,0,0" VerticalAlignment="Top" Width="55" Click="btnStop_Click"/>
-        <Label Content="Host IP:" HorizontalAlignment="Left" Height="27" Margin="22,10,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.299,0.548"/>
-        <Label Content="Port:" HorizontalAlignment="Left" Height="27" Margin="229,10,0,0" VerticalAlignment="Top" Width="39"/>
+        <!--Background color and rounded corners-->
+        <Border CornerRadius="15" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#ff512f" Offset="0.0"/>
+                    <GradientStop Color="#dd2476" Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <StackPanel Orientation="Vertical">
+            
+            <!--Start, Stop, and close buttons-->
+            <StackPanel Orientation="Horizontal" Height="60">
+                <Button x:Name="btnStart"
+                        Content="Start"
+                        Height="40"
+                        Margin="10,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Width="100"
+                        Click="btnStart_Click"
+                        FontSize="16"/>
+
+                <Button x:Name="btnStop"
+                        Content="Stop"
+                        FontFamily="Helvetica"  
+                        HorizontalAlignment="Left"
+                        Height="40"
+                        Margin="10,10,0,0"
+                        VerticalAlignment="Center"
+                        Width="100"
+                        Click="btnStop_Click"
+                        FontSize="16"/>
+
+                <!--Close button-->
+                <Button Click="CloseButton_Click"
+                        Height="40"
+                        Width="40"
+                        Content="╳"
+                        FontSize="20"
+                        Margin="230 10 0 0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"/>
+            </StackPanel>
+
+            
+            <TextBox x:Name="txtStatus"
+                     FontFamily="Helvetica"
+                     FontSize="16"
+                     Height="290"
+                     Width="480"
+                     Margin="10,10,10,10"
+                     TextWrapping="Wrap"
+                     Text=""
+                     VerticalAlignment="Top"
+                     Background="Transparent"
+                     BorderThickness="3"
+                     BorderBrush="White"
+                     IsReadOnly="True"/>
+
+            <!--Footer-->
+            <Label Content="Veer Singh © 2021 | Built with ❤"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Margin="0,0,0,0"
+                   Height="30"
+                   Foreground="White"
+                   Opacity="0.5"/>
+
+        </StackPanel>
+
+        
+
 
     </Grid>
 </Window>

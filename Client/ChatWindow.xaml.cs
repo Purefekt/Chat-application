@@ -36,16 +36,13 @@ namespace Client
             }
         }
         
-        //Create the client variable
-        SimpleTcpClient client;
+        SimpleTcpClient client; //Create the client variable
 
         private void ChatWindowLoaded(object sender, EventArgs e)
         {
             client = new SimpleTcpClient();
             client.StringEncoder = Encoding.UTF8;
             client.DataReceived += Client_DataReceived;
-
-            txtStatus.IsReadOnly = true; //Chat log must be read only
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
@@ -54,7 +51,6 @@ namespace Client
             {
                 client.Connect("127.0.0.1", 1111);
                 client.Write("                         " + username + " just joined!\n");
-                //client.Write(">>> " + username + " just joined!<<<\n");
                 btnConnect.IsEnabled = false;
                 connectedToTheServerAs.Text = "You are connected to the server as: " + username ; //Connected to server as message
             }
@@ -118,7 +114,7 @@ namespace Client
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            if (btnConnect.IsEnabled) //Error message if connect button is active which means we are not connected to a server
+            if (btnConnect.IsEnabled)
             {
                 System.Windows.MessageBox.Show("Please connect to the local server!");
             }
@@ -126,7 +122,8 @@ namespace Client
             {
                 if (txtMessage.Text.Length > 0 && !ifFileSelected && !txtMessage.Text.Equals(" ") && !txtMessage.Text.Equals("\n"))
                 {
-                    client.WriteLine(listbox.SelectedItem.ToString().ToLower() + "#" + username + ": " + txtMessage.Text);
+                    //client.WriteLine(listbox.SelectedItem.ToString().ToLower() + "#" + username + ": " + txtMessage.Text);
+                    client.WriteLine(listbox.SelectedItem.ToString() + "#" + username + ": " + txtMessage.Text);
                 }
                 else if (ifFileSelected)
                 {
@@ -149,11 +146,9 @@ namespace Client
 
         }
 
-        //Allows us to select files from the computer
-        OpenFileDialog op;
+        OpenFileDialog op; //Allows us to select files from the computer
 
-        //Browse button
-        private void btnBrowse_Click(object sender, RoutedEventArgs e)
+        private void btnBrowse_Click(object sender, RoutedEventArgs e) //Browse button
         {
             if (!btnConnect.IsEnabled) //if connect button is not enabled which means we are connected to a server
             {
@@ -170,18 +165,16 @@ namespace Client
             }
         }
 
-        //Tells the user to connect to a server is the user tries to type a message
-        private void txtMessage_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void txtMessage_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) //When we press the message text box
         {
-            if (!btnConnect.IsEnabled) //if button is not pressed
-                client.WriteLine("list");
+            if (!btnConnect.IsEnabled)
+                client.WriteLine("list"); //if the user is connected to a server, writes "list" to the server
             else
                 System.Windows.MessageBox.Show("Please connect to the local server!");
 
         }
 
-        //Logs off the user when window is closed
-        private void Window_Closed(object sender, EventArgs e)
+        private void Window_Closed(object sender, EventArgs e) //Logs off the user when window is closed
         {
             if (!btnConnect.IsEnabled) //if button is not pressed and if we we are connected
             {
@@ -207,8 +200,12 @@ namespace Client
             }
         }
 
-        //Lets us drag the window with the mouse
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Click_clear(object sender, EventArgs e) //Clears the chat log
+        {
+            txtStatus.Text = "";
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //Lets the user drag window with mouse
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -216,8 +213,7 @@ namespace Client
             }
         }
 
-        //Closes the application when we click the X button, also logs out the user
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e) //Closes the app when user clicks the X button, also logs out the user
         {
             String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
             MySqlConnection connection = new MySqlConnection(connectionString);

@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Server"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--Activating the new button theme-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="NewButton.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
