@@ -9,7 +9,6 @@
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
-
     <Grid>
         <!--Split grid in 2 rows-->
         <Grid.RowDefinitions>
@@ -27,7 +26,7 @@
             </Border.Background>
         </Border>
 
-        <!--Stackpanel Row 0-->
+        <!--Row 0-->
         <StackPanel Grid.Row="0">
             <!--Close button-->
             <Button Click="CloseButton_Click"
@@ -47,7 +46,7 @@
                        VerticalAlignment="Center"/>
         </StackPanel>
 
-        <!--StackPanel Row 1-->
+        <!--Row 1-->
         <StackPanel Grid.Row="1">
             <!--Username-->
             <StackPanel Orientation="Horizontal">

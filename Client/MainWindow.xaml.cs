@@ -27,8 +27,8 @@ namespace Client
             InitializeComponent();
         }
 
-        //Checks the login info provided
-        private void CheckLogin(string username, string password) {
+        private void CheckLogin(string username, string password) //Checks the login info provided
+        {
             string checkUser = null;
             string checkPassword = null;
             int isLogged = 0;
@@ -79,8 +79,7 @@ namespace Client
             }
         }
 
-        //Sends the username and password information to check
-        private void Login (object sender, RoutedEventArgs e)
+        private void Login (object sender, RoutedEventArgs e) //Sends the username and password information to check
         {
             String user = this.usernameBox.Text;
             String pass = this.passwordBox.Password;
@@ -88,36 +87,31 @@ namespace Client
             CheckLogin(user, pass);
         }
 
-        //Clears the username box when clicked on
-        private void ClearUsername(object sender, RoutedEventArgs e)
+        private void ClearUsername(object sender, RoutedEventArgs e) //Clears the username box when clicked on
         {
             this.usernameBox.Text = ""; 
         }
 
-        //Clears the password box when clicked on
-        private void ClearPassword(object sender, MouseButtonEventArgs e)
+        private void ClearPassword(object sender, MouseButtonEventArgs e) //Clears the password box when clicked on
         {
             this.passwordBox.Password = "";
         }
 
-        //Takes the user to the NewUserForm
-        private void UserForm(object sender, RoutedEventArgs e)
+        private void UserForm(object sender, RoutedEventArgs e) //Takes the user to the NewUserForm
         {
             NewUserForm newUser = new NewUserForm();
             newUser.Show();
             Close();
         }
 
-        //On successful login takes the user to the ChatWindow
-        private void OpenChatWindow()
+        private void OpenChatWindow() //On successful login takes the user to the ChatWindow
         {
             ChatWindow chatWindow = new ChatWindow(this.usernameBox.Text);
             chatWindow.Show();
             Close();
         }
 
-        //Lets us drag the window with the mouse
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //Lets us drag the window with the mouse
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -125,8 +119,7 @@ namespace Client
             }
         }
 
-        //Closes the application when we click the X button
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e) //Closes the application when we click the X button
         {
             Close();
         }
