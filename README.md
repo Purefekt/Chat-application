@@ -27,5 +27,5 @@ We can use this statement to check if the table is created properly.
 Our local database is ready.
 
 ## Miscellaneous
-[Icons for client and server](https://iconarchive.com/)
+[Icons for client and server](https://iconarchive.com/)  
 [Background gradient ideas](https://digitalsynopsis.com/design/beautiful-color-ui-gradients-backgrounds/)
