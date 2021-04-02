@@ -55,7 +55,6 @@ namespace Server
 
             if (e.MessageString.Contains("just joined"))
             {
-                //String user = e.MessageString.Substring(25, e.MessageString.Length - 25 - 14);
                 String user = e.MessageString.Substring(4, e.MessageString.Length- 4 -  18);
                 Socket socket = e.TcpClient.Client;
                 listOfClients.Add(new ClientDetails(user, socket));

@@ -11,23 +11,18 @@ namespace Client
 {
     public partial class ChatWindow : Window
     {
-        private string username;
+        private string username; 
         Boolean ifFileSelected = false; //boolean tells us if browse button is selected
         FileInfo fi; //stores file name and extension for the file to be saved
-        SimpleTcpClient client; //Create the client variable
+        SimpleTcpClient client; //Creates the client variable
         OpenFileDialog op; //Allows us to select files from the computer
-
-        public ChatWindow()
-        {
-            InitializeComponent();
-        }
 
         public ChatWindow(string usr)
         {
             InitializeComponent();
 
             username = usr;
-            this.Title = usr;
+            this.Title = usr; //sets title of window to the username
 
             string currentPath = "C:\\Chat Application files"; //Stores the files for the user in this directory
 
@@ -50,7 +45,6 @@ namespace Client
             try
             {
                 client.Connect("127.0.0.1", 1111);
-                //client.Write("                         " + username + " just joined!\n");
                 client.Write(">>> " + username + " just joined! <<<\n");
                 btnConnect.IsEnabled = false;
                 connectedToTheServerAs.Text = "You are connected to the server as: " + username ; //Connected to server as message
@@ -60,7 +54,6 @@ namespace Client
                 System.Windows.MessageBox.Show("Server is not active");
                 btnConnect.IsEnabled = true;
             }
-
         }
 
         private void Client_DataReceived(object sender, SimpleTCP.Message e)
@@ -77,7 +70,6 @@ namespace Client
                         cp++;
                     }
                 }
-
                 listbox.Items.Dispatcher.Invoke((Action)delegate ()
                 {
                     listbox.ItemsSource = listClients;
