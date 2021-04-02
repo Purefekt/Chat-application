@@ -14,6 +14,8 @@ namespace Server
     public partial class MainWindow : Window
     {
         string currentPath = "C:\\Chat Application files"; //where the files will be stores
+        SimpleTcpServer server; //Create the server variable
+        List<ClientDetails> listOfClients = new List<ClientDetails>();
 
         class ClientDetails
         {
@@ -34,14 +36,10 @@ namespace Server
             }
         }
 
-        List<ClientDetails> listOfClients = new List<ClientDetails>();
-
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        SimpleTcpServer server; //Create the server variable
 
         private void ServerLoaded(object sender, RoutedEventArgs e)
         {
@@ -57,8 +55,8 @@ namespace Server
 
             if (e.MessageString.Contains("just joined"))
             {
-                String user = e.MessageString.Substring(25, e.MessageString.Length - 25 - 14);
-                //String user = e.MessageString.Substring(4, e.MessageString.Length- 17);
+                //String user = e.MessageString.Substring(25, e.MessageString.Length - 25 - 14);
+                String user = e.MessageString.Substring(4, e.MessageString.Length- 4 -  18);
                 Socket socket = e.TcpClient.Client;
                 listOfClients.Add(new ClientDetails(user, socket));
        

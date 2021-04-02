@@ -14,6 +14,8 @@ namespace Client
         private string username;
         Boolean ifFileSelected = false; //boolean tells us if browse button is selected
         FileInfo fi; //stores file name and extension for the file to be saved
+        SimpleTcpClient client; //Create the client variable
+        OpenFileDialog op; //Allows us to select files from the computer
 
         public ChatWindow()
         {
@@ -35,8 +37,6 @@ namespace Client
                 Directory.CreateDirectory(currentPath + "/" + username);
             }
         }
-        
-        SimpleTcpClient client; //Create the client variable
 
         private void ChatWindowLoaded(object sender, EventArgs e)
         {
@@ -50,7 +50,8 @@ namespace Client
             try
             {
                 client.Connect("127.0.0.1", 1111);
-                client.Write("                         " + username + " just joined!\n");
+                //client.Write("                         " + username + " just joined!\n");
+                client.Write(">>> " + username + " just joined! <<<\n");
                 btnConnect.IsEnabled = false;
                 connectedToTheServerAs.Text = "You are connected to the server as: " + username ; //Connected to server as message
             }
@@ -122,7 +123,6 @@ namespace Client
             {
                 if (txtMessage.Text.Length > 0 && !ifFileSelected && !txtMessage.Text.Equals(" ") && !txtMessage.Text.Equals("\n"))
                 {
-                    //client.WriteLine(listbox.SelectedItem.ToString().ToLower() + "#" + username + ": " + txtMessage.Text);
                     client.WriteLine(listbox.SelectedItem.ToString() + "#" + username + ": " + txtMessage.Text);
                 }
                 else if (ifFileSelected)
@@ -145,8 +145,6 @@ namespace Client
             txtMessage.Text = ""; //Empties the text message box
 
         }
-
-        OpenFileDialog op; //Allows us to select files from the computer
 
         private void btnBrowse_Click(object sender, RoutedEventArgs e) //Browse button
         {
