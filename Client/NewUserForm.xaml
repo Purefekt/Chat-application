@@ -10,6 +10,13 @@
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
     <Grid>
+        
+        <!--Split grid in 2 rows-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
         <!--Background color and rounded corners-->
         <Border CornerRadius="15" Grid.RowSpan="2">
             <Border.Background>
@@ -20,18 +27,17 @@
             </Border.Background>
         </Border>
 
-        <StackPanel>
+        <!--Row 0-->
+        <StackPanel Grid.Row="0">
 
+            <!--Go back and close buttons-->
             <StackPanel Orientation="Horizontal">
-                <!--Go back button-->
                 <Button Click="GoBackToLogin"
                     Height="40"
                     Width="40"
                     Content="↲"
                     FontSize="20"
                     Margin="10 10 0 0"/>
-
-                <!--Close button-->
                 <Button Click="CloseButton_Click"
                     Height="40"
                     Width="40"
@@ -40,7 +46,21 @@
                     Margin="400 10 10 0"/>
             </StackPanel>
 
-            <!--New username-->
+            <!--NEW USER FORM title-->
+            <TextBlock Text="NEW USER FORM"
+                       FontFamily="Helvetica"
+                       FontWeight="Medium"
+                       FontSize="50"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            
+        </StackPanel>
+
+        <!--Row 1-->
+        <StackPanel Grid.Row="1">
+            
+            <!--New Username-->
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="newuser"
                          FontFamily="Helvetica"
@@ -55,10 +75,10 @@
                          Opacity="0.5"
                          Height="25"
                          Width="275"
-                         Margin="100 110 0 0"
+                         Margin="100 0 0 0"
                          PreviewMouseLeftButtonDown="ClearUsername"
                     />
-                <Image Source="/Images/username.png" Width="25" Height="25" Margin="0 110 100 0"/>
+                <Image Source="/Images/username.png" Width="25"/>
             </StackPanel>
             <!--Underline for username-->
             <Border Width="300"
@@ -66,14 +86,14 @@
                     Background="White"
                     Opacity="1"/>
 
-            <!--New password-->
+            <!--New Password-->
             <StackPanel Orientation="Horizontal">
                 <PasswordBox 
                          x:Name="newpassword"
                          FontFamily="Helvetica"
                          FontWeight="Light"
                          FontSize="22"
-                         Password="Username"
+                         Password="veerWasHere"
                          Foreground="White"
                          Background="Transparent"
                          BorderThickness="0"
@@ -87,28 +107,31 @@
                     />
                 <Image Source="/Images/password.png" Width="25"/>
             </StackPanel>
-            
             <!--Underline for password-->
             <Border Width="300"
                     Height="2"
                     Background="White"
                     Opacity="1"/>
 
-            <!--SUBMIT button-->
-            <Button Click="Submit"
-                    Width="100"
-                    Height="40"
-                    Content="SUBMIT"
-                    Margin="200 80 200 0"/>
+            <!-- Submit button -->
+            <StackPanel Orientation="Horizontal" Margin="0 50 0 0">
+                <Button Click="Submit"
+                        Width="100"
+                        Height="40"
+                        Content="SUBMIT"
+                        Margin="200, 0, 0, 0"
+                        FontSize="16"/>
+            </StackPanel>
 
             <!--Footer-->
             <Label Content="Veer Singh © 2021 | Built with ❤"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Bottom"
-                   Margin="0,36,0,0"
+                   Margin="0,26,0,0"
                    Height="30"
                    Foreground="White"
                    Opacity="0.5"/>
+            
         </StackPanel>
     </Grid>
 </Window>

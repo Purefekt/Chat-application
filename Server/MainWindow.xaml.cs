@@ -177,7 +177,7 @@ namespace Server
         {
             if (server.IsStarted)
             {
-                server.Broadcast("The server has been stopped!");
+                server.Broadcast(">>>The server has crashed! Please close this window and try again later!<<<");
                 server.Stop();
                 btnStart.IsEnabled = true;
                 txtStatus.Text = "Server stopped.\n";
