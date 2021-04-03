@@ -15,9 +15,9 @@ This is a wpf chat application. It lets users make accounts and log into their a
   <img src="Assets/fix_reference_issue1.png" width = 60%>
 </p>
 - Now go to MainWindow.xaml.cs under Client and go to line **38** ```MySqlConnection connection = new MySqlConnection(connectionString);```
--  ```MySqlConnection``` should be underlined with red, click on it and then click on the yellow bulb
+- ```MySqlConnection``` should be underlined with red, click on it and then click on the yellow bulb
 - Click on the provided solution for this issue, -> ```Find and install latest version``` (as shown in the image)  
-
+- 
 <p align="left">
   <img src="Assets/fix_reference_issue2.PNG" width = 60%>
 </p>
