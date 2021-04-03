@@ -9,11 +9,17 @@ This is a wpf chat application. It lets users make accounts and log into their a
 - Download the project with ``` git clone ___ ``` or download the .zip file
 - Open the ```Client.sln``` file
 - Build the entire solution
-- If you run into issues, it is most likely that the ```MySql``` and ```SimpleTCP``` references not showing up
+- If you run into issues, it is most likely that the ```MySql``` reference is not working
 - To fix this, right click Client -> Add -> Reference... -> Search -> MySql and select all and press Ok (as shown in the image)
+<p align="left">
+  <img src="Chat-application/Images for readme/fix_reference_issue1.PNG" width = 60%>
+</p>
 - Now go to MainWindow.xaml.cs under Client and go to line **38** ```MySqlConnection connection = new MySqlConnection(connectionString);```
 - ```MySqlConnection``` should be underlined with red, click on it and then click on the yellow bulb
-- Click on the provided solution for this issue, -> ```Find and install latest version```
+- Click on the provided solution for this issue, -> ```Find and install latest version``` (as shown in the image)
+<p align="left">
+  <img src="Chat-application/Images for readme/fix_reference_issue2.PNG" width = 60%>
+</p>
 - This should fix this issue
 - Now build Solution again
 - The Client.exe will be stored under ```Chat-application\Client\bin\Debug``` folder
