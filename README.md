@@ -4,6 +4,21 @@ This is a wpf chat application. It lets users make accounts and log into their a
 ## Requirements
 - [Visual Studio 2019 Community](https://visualstudio.microsoft.com/downloads/) - Download and install this free IDE, with the .NET desktop development workload. 
 - [MySQL](https://dev.mysql.com/downloads/) - Download and install the MySQL installer for Windows and do the "Full" installation. Otherwise make sure you have the MySQL Connectors -> Connector/NET. Make sure port 3306 is not already in use, if it is in use you will have to reconfigure settings in the MySQL Installer. You can check if port 3306 is being used and by what by Win+R -> resmon.exe -> Network -> Listening Ports.
+  
+## Guide to Download and Run this Project
+- Download the project with ``` git clone ___ ``` or download the .zip file
+- Open the ```Client.sln``` file
+- Build the entire solution
+- If you run into issues, it is most likely that the ```MySql``` and ```SimpleTCP``` references not showing up
+- To fix this, right click Client -> Add -> Reference... -> Search -> MySql and select all and press Ok (as shown in the image)
+- Now go to MainWindow.xaml.cs under Client and go to line **38** ```MySqlConnection connection = new MySqlConnection(connectionString);```
+- ```MySqlConnection``` should be underlined with red, click on it and then click on the yellow bulb
+- Click on the provided solution for this issue, -> ```Find and install latest version```
+- This should fix this issue
+- Now build Solution again
+- The Client.exe will be stored under ```Chat-application\Client\bin\Debug``` folder
+- The Server.exe will be stored under ```Chat-application\Server\bin\Debug``` folder
+- You wont be able to use the chat application unless you setup the following database in the next step
 
 ## Setting up a local MySQL database
 After the successful installation of MySQL, configure the root password. For me i set it as 1234. We will need this password when sending MySQL commands.  
@@ -24,7 +39,8 @@ This creates a new table called users where we have 3 columns called username, p
 select * from users;
 ```
 We can use this statement to check if the table is created properly.  
-Our local database is ready.
+Our local database is ready.  
+Make sure the password, datasource name,username, name of the database, table and columns is same and also the order of columns. If you change the name of any of these you will have to manually change the SQL command in the code in the Client project in ```MainWindow.xaml.cs```, ```NewUserForm.xaml.cs``` and ```ChatWindow.xaml.cs```
 
 ## Miscellaneous
 [Icons for client and server](https://iconarchive.com/)  
