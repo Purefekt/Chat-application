@@ -18,7 +18,7 @@ This is a wpf chat application. It lets users make accounts and log into their a
 - ```MySqlConnection``` should be underlined with red, click on it and then click on the yellow bulb
 - Click on the provided solution for this issue, -> ```Find and install latest version``` (as shown in the image)
 <p align="left">
-  <img src="Chat-application/Images for readme/fix_reference_issue2.PNG" width = 60%>
+  <img src="Chat-application/Images for readme/fix_reference_issue2.png" width = 60%>
 </p>
 - This should fix this issue
 - Now build Solution again
