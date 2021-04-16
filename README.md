@@ -17,7 +17,7 @@ New User Form
   <img src="Assets/[3]New_user_form.PNG" width = 60%>
 </p>
 
-Database Image
+Database Image - As we can see once we create users, we can check their username, password and their login.
 <p align="left">
   <img src="Assets/[4]Database_Image.PNG" width = 60%>
 </p>
@@ -27,7 +27,8 @@ Public and Private messages
   <img src="Assets/[5]Public_and_private_messages.PNG" width = 60%>
 </p>
 
-A more detailed video of the Chat Application is linked [here]()
+## Chat application in action
+A more detailed video can be found [here]()
 
 ## Requirements
 - [Visual Studio 2019 Community](https://visualstudio.microsoft.com/downloads/) - Download and install this free IDE, with the .NET desktop development workload. 
