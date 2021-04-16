@@ -28,7 +28,7 @@ Public and Private messages
 </p>
 
 ## Chat application Video
-[![Link to my YouTube video!]()](https://www.youtube.com/watch?v=5KWcnVNVr5Q)
+[![Link to my YouTube video!](https://github.com/Purefekt/Chat-application/blob/main/Assets/Video_thumbnail.png)](https://www.youtube.com/watch?v=5KWcnVNVr5Q)
 
 ## Requirements
 - [Visual Studio 2019 Community](https://visualstudio.microsoft.com/downloads/) - Download and install this free IDE, with the .NET desktop development workload. 
