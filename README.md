@@ -27,8 +27,8 @@ Public and Private messages
   <img src="Assets/[5]Public_and_private_messages.PNG" width = 60%>
 </p>
 
-## Chat application in action
-A more detailed video can be found [here]()
+## Chat application Video
+[![Link to my YouTube video!]()](https://www.youtube.com/watch?v=5KWcnVNVr5Q)
 
 ## Requirements
 - [Visual Studio 2019 Community](https://visualstudio.microsoft.com/downloads/) - Download and install this free IDE, with the .NET desktop development workload. 
