@@ -81,7 +81,7 @@ SELECT * FROM users;
 
 ## Running the application
 I have created 3 batch files
-- ```Both.bat``` - Open 2 instances of the client.exe and one instance of the Server.exe
+- ```Both.bat``` - Open 2 instances of the Client.exe and one instance of the Server.exe
 - ```Client.bat``` - Opens one instance of the Client.exe
 - ```Server.bat``` - Opens one instance of the Server.exe
 - You can also manually go inside the ```Chat-application\Client\bin\Debug``` or ```Chat-application\Server\bin\Debug``` folders and open these .exe files, but using the batch files is easier.
